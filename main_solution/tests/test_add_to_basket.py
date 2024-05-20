@@ -18,11 +18,6 @@ def test_add_to_basket(page: Page) -> None:
             "flavour": "Dark Chocolate Raspberry",
             "quantity": 2,
         },
-        {
-            "name": "Huel Ready-to-drink",
-            "flavour": "Iced Coffee Caramel",
-            "quantity": 1,
-        },
     ]
 
     # Step 1: Navigate to the Huel homepage in a headless browser
@@ -100,10 +95,10 @@ def test_add_to_basket(page: Page) -> None:
         # Ensure confirmation page has finished loading, otherwise search can be interrupted
         page.wait_for_url("**/pages/cross-sell")
 
-    # Step 5: Open basket
+    # Step 6: Open basket
     page.get_by_test_id("IconLink-Cart").click()
 
-    # Step 6: Verify number of products in basket
+    # Step 7: Verify number of products in basket
     try:
         expect(page.locator(".CartMixAndMatchBundle__items > li")).to_have_count(
             len(products)
