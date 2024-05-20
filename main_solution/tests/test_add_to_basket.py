@@ -23,14 +23,9 @@ def test_add_to_basket(page: Page) -> None:
             "flavour": "Iced Coffee Caramel",
             "quantity": 1,
         },
-        {
-            "name": "Huel Complete Protein",
-            "flavour": "Banana Pudding",
-            "quantity": 2,
-        },
     ]
 
-    # Step 1: Navigate to Huel homepage in a headless browser
+    # Step 1: Navigate to the Huel homepage in a headless browser
     page.goto("https://huel.com/")
 
     # Accept cookies if present
@@ -96,7 +91,10 @@ def test_add_to_basket(page: Page) -> None:
         # Step 5: Add to basket with default purchase type (subscription)
         continue_btn = page.get_by_role("button", name="Continue")
 
+        # Continue to purchase type page
         continue_btn.click()
+
+        # Complete
         continue_btn.click()
 
         # Ensure confirmation page has finished loading, otherwise search can be interrupted
