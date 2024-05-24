@@ -19,11 +19,11 @@ Playwright runs tests in a headless browser within a unique browser context by d
 	The steps are:
 	1. Search for the product name.  
 	2. Verify that the product name is part of the search result links. If it isn't, an exception is raised and the script terminates.  
-	  Search results can at times take a big longer to load, especially in headed mode, so the timeout has been increased to ensure errors don't occur pre-emptively. 
+	  Search results can at times take a bit longer to load, especially in headed mode, so the timeout has been increased to ensure errors don't occur pre-emptively. 
 	  The name match needs to be exact. I considered a few alternatives to this, but decided that ensuring the test data is accurate and up-to-date is the most straightforward way to find the relevant link within the current results page layout. Other solutions I came up with add complexity in a part of the test where it isn't needed.
 	1. Open the product page.  
 	2. Verify that the expected flavour exists *and* is in stock. If it isn't, an exception is raised and the script terminates.  
-	  Product pages can at times take a big longer to load, especially in headed mode, so the timeout has been increased to ensure errors don't occur pre-emptively.  
+	  Product pages can at times take a bit longer to load, especially in headed mode, so the timeout has been increased to ensure errors don't occur pre-emptively.  
 	5. Select desired quantity of the flavour.  
 	6. Add the search product to the basket.  
 	7. Wait for the confirmation page to load. Otherwise, the navigation bar loads first, so the search steps for the next product are initiated, but at times the search is disrupted when the rest of the page finishes loading.  
