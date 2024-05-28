@@ -19,7 +19,13 @@ def test_add_to_basket(page: Page) -> None:
     main_page.load()
 
     # Step 2: Accept cookies if present
-    main_page.accept_cookies()
+    try:
+        expect(main_page.accept_cookie_btn).to_be_visible()
+        main_page.accept_cookie_btn.click()
+    except AssertionError as e:
+        print("Accept cookies button not visible:", e)
+    except TimeoutError as e:
+        print("Accept cookies button timeout:", e)
 
     # Step 3: Search for product name
     main_page.search(product["name"])

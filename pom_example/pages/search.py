@@ -10,15 +10,6 @@ class HuelSearch:
 
     def load(self) -> None:
         self.page.goto("https://huel.com/")
-        
-    def accept_cookies(self) -> None:
-        try:
-            expect(self.accept_cookie_btn).to_be_visible()
-            self.accept_cookie_btn.click()
-        except AssertionError as e:
-            print("Accept cookies button not visible:", e)
-        except TimeoutError as e:
-            print("Accept cookies button timeout:", e)
 
     def search(self, text: str) -> None:
         self.search_icon.click()
